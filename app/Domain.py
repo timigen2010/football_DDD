@@ -3,6 +3,7 @@ from app.country.ICountry import ICountry
 from app.city.ICity import ICity
 from app.liga.ILiga import ILiga
 from app.club.IClub import IClub
+from app.contestant.IContestant import IContestant
 
 
 class Domain:
@@ -12,3 +13,4 @@ class Domain:
         self.city = ICity(self._dal)
         self.liga = ILiga(self._dal)
         self.club = IClub(self._dal)
+        self.contestant = IContestant(self._dal)

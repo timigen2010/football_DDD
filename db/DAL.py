@@ -3,6 +3,7 @@ from db.country.ICountry import ICountry
 from db.city.ICity import ICity
 from db.liga.ILiga import ILiga
 from db.club.IClub import IClub
+from db.contestant.IContestant import IContestant
 
 
 class DAL:
@@ -12,3 +13,4 @@ class DAL:
         self.city = ICity(self._db)
         self.liga = ILiga(self._db)
         self.club = IClub(self._db)
+        self.contestant = IContestant(self._db)
