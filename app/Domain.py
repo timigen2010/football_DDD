@@ -7,6 +7,7 @@ from app.contestant.IContestant import IContestant
 from app.foul.IFoul import IFoul
 from app.game.IGame import IGame
 from app.position.IPosition import IPosition
+from app.player.IPlayer import IPlayer
 
 
 class Domain:
@@ -20,3 +21,4 @@ class Domain:
         self.foul = IFoul(self._dal)
         self.game = IGame(self._dal)
         self.position = IPosition(self._dal)
+        self.player = IPlayer(self._dal)
