@@ -15,5 +15,8 @@ class ICountry:
     def delete(self, id):
         return self._dal.delete(id)
 
+    def get_country(self, id):
+        return self._dal.get_country(id)
+
     def get_all_countries(self):
         return self._dal.get_all_countries()

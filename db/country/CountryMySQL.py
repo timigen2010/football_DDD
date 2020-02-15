@@ -47,3 +47,11 @@ class CountryMySQL:
         query = "SELECT country_id, name FROM country ORDER BY name"
 
         return self.db.execute(query)
+
+    def get_country(self, id):
+
+        where_case = "country_id='{:d}'".format(id)
+
+        query = "SELECT country_id, name FROM country WHERE " + where_case
+
+        return self.db.execute(query)
