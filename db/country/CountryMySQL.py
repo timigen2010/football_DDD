@@ -21,10 +21,9 @@ class CountryMySQL:
 
     def edit(self, id, data):
 
-        if 'name' not in data:
-            return False
-
-        params = ["name='{:s}'".format(escape_string(data['name']))]
+        params = []
+        if 'name' in data:
+            params.append("name='{:s}'".format(escape_string(data['name'])))
         if 'flag' in data:
             params.append("flag='{:s}'".format(escape_string(data['flag'])))
 
