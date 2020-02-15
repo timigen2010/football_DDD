@@ -5,6 +5,7 @@ from app.liga.ILiga import ILiga
 from app.club.IClub import IClub
 from app.contestant.IContestant import IContestant
 from app.foul.IFoul import IFoul
+from app.game.IGame import IGame
 
 
 class Domain:
@@ -16,3 +17,4 @@ class Domain:
         self.club = IClub(self._dal)
         self.contestant = IContestant(self._dal)
         self.foul = IFoul(self._dal)
+        self.game = IGame(self._dal)
