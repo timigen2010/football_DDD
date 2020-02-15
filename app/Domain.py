@@ -8,6 +8,7 @@ from app.foul.IFoul import IFoul
 from app.game.IGame import IGame
 from app.position.IPosition import IPosition
 from app.player.IPlayer import IPlayer
+from app.participation.IParticipation import IParticipation
 
 
 class Domain:
@@ -22,3 +23,4 @@ class Domain:
         self.game = IGame(self._dal)
         self.position = IPosition(self._dal)
         self.player = IPlayer(self._dal)
+        self.participation = IParticipation(self._dal)

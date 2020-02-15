@@ -8,6 +8,7 @@ from db.foul.IFoul import IFoul
 from db.game.IGame import IGame
 from db.position.IPosition import IPosition
 from db.player.IPlayer import IPlayer
+from db.participation.IParticipation import IParticipation
 
 
 class DAL:
@@ -22,3 +23,4 @@ class DAL:
         self.game = IGame(self._db)
         self.position = IPosition(self._db)
         self.player = IPlayer(self._db)
+        self.participation = IParticipation(self._db)
