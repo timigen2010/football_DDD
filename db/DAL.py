@@ -6,6 +6,7 @@ from db.club.IClub import IClub
 from db.contestant.IContestant import IContestant
 from db.foul.IFoul import IFoul
 from db.game.IGame import IGame
+from db.position.IPosition import IPosition
 
 
 class DAL:
@@ -18,3 +19,4 @@ class DAL:
         self.contestant = IContestant(self._db)
         self.foul = IFoul(self._db)
         self.game = IGame(self._db)
+        self.position = IPosition(self._db)
