@@ -20,3 +20,6 @@ class IClub:
 
     def get_all_clubs(self):
         return self._db.get_all_clubs()
+
+    def get_clubs_by_city(self, club_id):
+        return self._db.get_clubs_by_city(club_id)

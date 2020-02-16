@@ -17,3 +17,6 @@ class Club:
 
     def get_all_clubs(self):
         return self._dal.club.get_all_clubs()
+
+    def get_clubs_by_city(self, city_id):
+        return self._dal.club.get_clubs_by_city(city_id)

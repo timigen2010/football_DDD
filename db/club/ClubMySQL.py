@@ -74,3 +74,11 @@ class ClubMySQL:
         query = "SELECT club_id, name, city_id, year, liga_id, president, phone, logo FROM club WHERE " + where_case
 
         return self.db.execute(query)
+
+    def get_clubs_by_city(self, city_id):
+
+        where_case = " WHERE city_id='{:d}'".format(int(city_id))
+
+        query = "SELECT club_id, name, city_id, year, liga_id, president, phone, logo FROM club" + where_case
+
+        return self.db.execute(query)
