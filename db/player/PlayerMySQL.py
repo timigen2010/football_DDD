@@ -86,3 +86,12 @@ class PlayerMySQL:
         query = "SELECT player_id, club_id, fio, position_id, nationality_id, dob, height, weight, year, contract, photo FROM player WHERE " + where_case
 
         return self.db.execute(query)
+
+    def get_old_players(self, club_id):
+
+        where_case = "club_id='{:d}'".format(int(club_id))
+        where_case += " AND (CURRENT_DATE-dob) >= 30 * 365"
+        order_clause = " ORDER BY fio"
+        query = "SELECT fio FROM player WHERE " + where_case + order_clause
+
+        return self.db.execute(query)

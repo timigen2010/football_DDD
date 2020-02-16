@@ -1,5 +1,5 @@
 from pymysql import escape_string
-
+import datetime
 
 class GameMySQL:
 
@@ -64,5 +64,20 @@ class GameMySQL:
         where_case = "game_id='{:d}'".format(id)
 
         query = "SELECT game_id, club_id, contestant_id, date, home_score, guest_score FROM game WHERE " + where_case
+
+        return self.db.execute(query)
+
+    def get_club_games_by_period(self, club_id, period_date_start, period_date_end):
+
+        where_case = " WHERE g.club_id='{:d}'".format(int(club_id))
+        where_case += " AND g.date BETWEEN '{:s}' AND '{:s}'".format(escape_string(str(period_date_start)), escape_string(str(period_date_end)))
+
+        group_case = " GROUP BY cl.name, ct.name, g.date, g.home_score, g.guest_score"
+        order_case = " ORDER BY cl.name, ct.name, g.date"
+
+        query = "SELECT cl.name, ct.name, g.date, g.home_score, g.guest_score FROM game AS g"
+        query += " INNER JOIN club AS cl ON (g.club_id = cl.club_id)"
+        query += " INNER JOIN contestant AS ct ON (g.contestant_id = ct.contestant_id)"
+        query += where_case + group_case + order_case
 
         return self.db.execute(query)

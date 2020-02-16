@@ -17,3 +17,6 @@ class Player:
 
     def get_all_players(self):
         return self._dal.player.get_all_players()
+
+    def get_old_players(self, club_id):
+        return self._dal.player.get_old_players(club_id)
