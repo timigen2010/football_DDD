@@ -23,3 +23,6 @@ class IFoul:
 
     def get_last_month_foul(self):
         return self._db.get_last_month_foul()
+
+    def get_win_last_month_foul(self):
+        return self._db.get_win_last_month_foul()

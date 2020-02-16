@@ -20,3 +20,6 @@ class Foul:
 
     def get_last_month_foul(self):
         return self._dal.foul.get_last_month_foul()
+
+    def get_win_last_month_foul(self):
+        return self._dal.foul.get_win_last_month_foul()

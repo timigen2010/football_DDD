@@ -73,3 +73,18 @@ class FoulMySQL:
         query += group_case + having_case
 
         return self.db.execute(query)
+
+    def get_win_last_month_foul(self):
+
+        where_case = " WHERE g.home_score > g.guest_score"
+        group_case = " GROUP BY cl.name, ct.name, g.date"
+        having_case = " HAVING CURRENT_DATE - g.date <= 30"
+
+        query = "SELECT cl.name as club, ct.name as contestant, g.date, COUNT(pt.game_id) FROM game AS g"
+        query += " LEFT JOIN club AS cl ON (g.club_id = cl.club_id)"
+        query += " LEFT JOIN contestant AS ct ON (g.contestant_id = ct.contestant_id)"
+        query += " INNER JOIN participation AS pt ON (pt.game_id = g.game_id)"
+
+        query += where_case + group_case + having_case
+
+        return self.db.execute(query)
