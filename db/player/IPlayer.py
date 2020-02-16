@@ -23,3 +23,6 @@ class IPlayer:
 
     def get_old_players(self, club_id):
         return self._db.get_old_players(club_id)
+
+    def get_players_by_club(self, club_id):
+        return self._db.get_players_by_club(club_id)

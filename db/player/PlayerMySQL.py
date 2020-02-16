@@ -95,3 +95,14 @@ class PlayerMySQL:
         query = "SELECT fio FROM player WHERE " + where_case + order_clause
 
         return self.db.execute(query)
+
+    def get_players_by_club(self, club_id):
+
+        where_case = " WHERE pl.club_id='{:d}'".format(int(club_id))
+        order_clause = " ORDER BY p.name, pl.fio"
+        query = "SELECT pl.fio, p.name as position, cn.name as nationality, pl.dob, pl.height, pl.weight, pl.year, pl.contract, pl.photo FROM player as pl"
+        query += "  INNER JOIN position AS p ON (pl.position_id = p.position_id)"
+        query += "  INNER JOIN country AS cn ON (pl.nationality_id = cn.country_id)"
+        query += where_case + order_clause
+
+        return self.db.execute(query)
