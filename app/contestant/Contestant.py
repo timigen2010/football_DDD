@@ -17,3 +17,6 @@ class Contestant:
 
     def get_all_contestants(self):
         return self._dal.contestant.get_all_contestants()
+
+    def get_played_contestants(self):
+        return self._dal.contestant.get_played_contestants()

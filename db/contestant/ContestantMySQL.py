@@ -55,6 +55,18 @@ class ContestantMySQL:
 
         return self.db.execute(query)
 
+    def get_played_contestants(self):
+
+        order_case = " ORDER BY cn.name, ct.name"
+
+        query = "SELECT ct.name, cn.name, ct.coach, ct.logo FROM contestant as ct"
+        query += " LEFT JOIN country AS cn ON (ct.country_id = cn.country_id)"
+        query += " INNER JOIN game AS g ON (g.contestant_id = ct.contestant_id)"
+
+        query += order_case
+
+        return self.db.execute(query)
+
     def get_contestant(self, id):
 
         where_case = "contestant_id='{:d}'".format(id)

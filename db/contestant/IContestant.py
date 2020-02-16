@@ -20,3 +20,6 @@ class IContestant:
 
     def get_all_contestants(self):
         return self._db.get_all_contestants()
+
+    def get_played_contestants(self):
+        return self._db.get_played_contestants()
