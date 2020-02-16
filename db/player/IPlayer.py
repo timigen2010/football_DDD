@@ -26,3 +26,6 @@ class IPlayer:
 
     def get_players_by_club(self, club_id):
         return self._db.get_players_by_club(club_id)
+
+    def get_players_contract_above_avg(self):
+        return self._db.get_players_contract_above_avg()
