@@ -26,3 +26,6 @@ class IClub:
 
     def get_clubs_by_city(self, club_id):
         return self._db.get_clubs_by_city(club_id)
+
+    def get_avg_goals(self):
+        return self._db.get_avg_goals()

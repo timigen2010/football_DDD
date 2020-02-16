@@ -23,3 +23,6 @@ class Club:
 
     def get_clubs_by_city(self, city_id):
         return self._dal.club.get_clubs_by_city(city_id)
+
+    def get_avg_goals(self):
+        return self._dal.club.get_avg_goals()
