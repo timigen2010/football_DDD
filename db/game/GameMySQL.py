@@ -59,6 +59,17 @@ class GameMySQL:
 
         return self.db.execute(query)
 
+    def get_all_games_data(self):
+
+        order_case = " ORDER BY cl.name, ct.name, g.date"
+
+        query = "SELECT cl.name as club, ct.name, date, home_score, guest_score FROM game AS g"
+        query += " INNER JOIN club AS cl ON (g.club_id = cl.club_id)"
+        query += " INNER JOIN contestant AS ct ON (g.contestant_id = ct.contestant_id)"
+        query += order_case
+
+        return self.db.execute(query)
+
     def get_game(self, id):
 
         where_case = "game_id='{:d}'".format(id)

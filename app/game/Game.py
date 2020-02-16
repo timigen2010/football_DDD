@@ -18,5 +18,8 @@ class Game:
     def get_all_games(self):
         return self._dal.game.get_all_games()
 
+    def get_all_games_data(self):
+        return self._dal.game.get_all_games_data()
+
     def get_club_games_by_period(self, club_id, period_date_start, period_date_end):
         return self._dal.game.get_club_games_by_period(club_id, period_date_start, period_date_end)
