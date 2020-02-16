@@ -109,3 +109,16 @@ class ClubMySQL:
         query += group_case + order_case
 
         return self.db.execute(query)
+
+    def get_avg_win_goals(self):
+
+        where_case = " WHERE g.home_score > g.guest_score"
+        group_case = " GROUP BY cl.name"
+        order_case = " ORDER BY cl.name"
+
+        query = "SELECT cl.name, AVG(g.home_score) as avg_goals FROM club AS cl"
+        query += " INNER JOIN game AS g ON (g.club_id = cl.club_id)"
+
+        query += where_case + group_case + order_case
+
+        return self.db.execute(query)

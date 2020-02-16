@@ -29,3 +29,6 @@ class IClub:
 
     def get_avg_goals(self):
         return self._dal.get_avg_goals()
+
+    def get_avg_win_goals(self):
+        return self._dal.get_avg_win_goals()
