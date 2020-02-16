@@ -17,3 +17,6 @@ class Foul:
 
     def get_all_fouls(self):
         return self._dal.foul.get_all_fouls()
+
+    def get_last_month_foul(self):
+        return self._dal.foul.get_last_month_foul()

@@ -51,3 +51,25 @@ class FoulMySQL:
         query = "SELECT foul_id, name FROM foul WHERE " + where_case
 
         return self.db.execute(query)
+
+    def get_foul(self, id):
+
+        where_case = "foul_id='{:d}'".format(id)
+
+        query = "SELECT foul_id, name FROM foul WHERE " + where_case
+
+        return self.db.execute(query)
+
+    def get_last_month_foul(self):
+
+        group_case = " GROUP BY cl.name, ct.name, g.date"
+        having_case = " HAVING CURRENT_DATE - g.date <= 30"
+
+        query = "SELECT cl.name as club, ct.name as contestant, g.date, COUNT(pt.game_id) FROM game AS g"
+        query += " LEFT JOIN club AS cl ON (g.club_id = cl.club_id)"
+        query += " LEFT JOIN contestant AS ct ON (g.contestant_id = ct.contestant_id)"
+        query += " INNER JOIN participation AS pt ON (pt.game_id = g.game_id)"
+
+        query += group_case + having_case
+
+        return self.db.execute(query)
