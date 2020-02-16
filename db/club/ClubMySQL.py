@@ -77,8 +77,11 @@ class ClubMySQL:
 
     def get_clubs_by_city(self, city_id):
 
-        where_case = " WHERE city_id='{:d}'".format(int(city_id))
+        where_case = " WHERE cl.city_id='{:d}'".format(int(city_id))
 
-        query = "SELECT club_id, name, city_id, year, liga_id, president, phone, logo FROM club" + where_case
+        query = "SELECT cl.name as club, c.name as city, cl.year, l.name, cl.president, cl.phone, cl.logo FROM club AS cl"
+        query += " INNER JOIN city AS c ON (cl.city_id = c.city_id)"
+        query += " INNER JOIN liga AS l ON (cl.liga_id = l.liga_id)"
+        query += where_case
 
         return self.db.execute(query)
